@@ -120,7 +120,7 @@ public class StockSim : MonoBehaviour
         }
 
         // Debug Purposes only
-        Logger();
+        // Logger();
         // Calls Trend Manager
         TrendManager();
         
