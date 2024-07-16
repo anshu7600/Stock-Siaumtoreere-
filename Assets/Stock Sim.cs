@@ -22,8 +22,8 @@ public class StockSim : MonoBehaviour
     // TPM stands for ticks per minute, Each tick the stock updates
     public int TPM = 10;
     private float TickTimer = 0;
-    // Stock Factors include: Peak(Max value of stock), Valley(Min value of stock), Risk(Multiplies losses),(Ignore the 9.11), Reward(Multiplies Gains)
-    public float[] StockFactors = {100f, 2f, 0.97f, 9.11f, 1.12f};
+    // Stock Factors include: Peak(Max value of stock), Risk(Multiplies losses), (Ignore the 0), Reward(Multiplies Gains)
+    public float[] StockFactors = {747f, 0.97f, 0f, 1.12f};
 
     // Functions
     // Logger: Outputs all the values in the console
@@ -43,7 +43,7 @@ public class StockSim : MonoBehaviour
         {
             Trends[0] = -1;
         }
-        else if (CurrentPrice <= StockFactors[1])
+        else if (CurrentPrice <= 0)
         {
             Trends[0] = 1;
         }
@@ -107,7 +107,10 @@ public class StockSim : MonoBehaviour
 
         // Multiplies DeltaPrice by the TT and then by Risk/Reward
         DeltaPrice *= Trends[2];
-        DeltaPrice *= StockFactors[(int)Trends[2] + 3];
+        DeltaPrice *= StockFactors[(int)Trends[2] + 2];
+
+        // Makes shure that the prices stays in cents
+        DeltaPrice = (math.round(DeltaPrice*100)/100);
 
         // Adds the Price over to the CurrentPrice
         CurrentPrice += DeltaPrice;
