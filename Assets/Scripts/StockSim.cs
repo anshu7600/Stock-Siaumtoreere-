@@ -34,7 +34,9 @@ public class StockSim : MonoBehaviour
     // The decimal will not be included in the code but the backslashes will be.
     public string[] Orders;
     // Trend guy Dialouge B)
-    private readonly string[] TGD = { };
+    private readonly string[] TGD = { "The Trend seems to be bearish. Not great for the average person", "The market is likely going nowhere for now", "The Trend is bullish! A great time for investors!" };
+
+    public bool selected;
 
     // UI REFRENCES
     // All the trading stuff: Current price, Delta Price, Shares, Share net worth
@@ -49,8 +51,11 @@ public class StockSim : MonoBehaviour
     {
         // Updates the Prices
         Ti.text = ("Current Price: " + CurrentPrice + "$\nChange in Price: " + DeltaPrice + "$\nShares: " + Shares + "\nShare Net worth: " + (Shares*CurrentPrice) + "$");
-        // Updates trend guy
-        // 
+        // Updates Trend guy
+        if ((TrendTimer - (10 * math.floor(TrendTimer / 10))) >= 3 && UnityEngine.Random.Range(0,2) == 1)
+        {
+            TG.text = (TGD[(int)Trends[1] + 1]);
+        }
     }
 
     // TradeManager: Does all the trading related stuff(Further explanations are shown below)
@@ -88,7 +93,7 @@ public class StockSim : MonoBehaviour
             {
                 Trends[1] = Probablity[UnityEngine.Random.Range(10, 20)];
             }
-            TrendTimer = (10 * UnityEngine.Random.Range(3, 9));
+            TrendTimer = (10 * UnityEngine.Random.Range(6, 13));
         }
 
         // Tick Trend: Is random, and decides if the stock price will go up or down (Influenced by ST)

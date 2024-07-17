@@ -134,12 +134,12 @@ GameObject:
   - component: {fileID: 100356076}
   - component: {fileID: 100356075}
   m_Layer: 5
-  m_Name: Shares
+  m_Name: Trend Guy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &100356075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Change in Price: '
+  m_text: Hmmm... Let me see here... It seems to be... Uhh...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 851a3cba27fd59b4c9af69dfd9b08664, type: 2}
   m_sharedMaterial: {fileID: -7283833518804849568, guid: 851a3cba27fd59b4c9af69dfd9b08664, type: 2}
@@ -187,8 +187,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -253,8 +253,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 420, y: -163.31}
-  m_SizeDelta: {x: 508.56, y: 50}
+  m_AnchoredPosition: {x: 570, y: -140}
+  m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &243569969
 GameObject:
@@ -589,7 +589,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 420, y: -141.8}
+  m_AnchoredPosition: {x: 420, y: -140}
   m_SizeDelta: {x: 508.56, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
@@ -901,8 +901,9 @@ MonoBehaviour:
   - 1.12
   Shares: 0
   Orders: []
+  selected: 0
   Ti: {fileID: 496596105}
-  TG: {fileID: 0}
+  TG: {fileID: 100356075}
 --- !u!1 &1948238550
 GameObject:
   m_ObjectHideFlags: 0
