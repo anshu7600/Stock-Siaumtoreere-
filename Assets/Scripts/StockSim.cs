@@ -15,7 +15,8 @@ public class StockSim : MonoBehaviour
     // Trends are ordered by influence: Company Trend(CT), Stock Trend(ST), Tick Trend(TT)
     public float[] Trends = {1, 1, 1};
     // Trend Timer is only used by ST
-    public float TrendTimer = 11;
+    // The one at the thousands place is completely irrelevent it is only there to stop unity from removing a zero if the trend only lasts less than 10 ticks
+    public float TrendTimer = 11111;
     // Probability is used to decide Tick Trend and Stock Trend as they are influenced by another trend
     // 0 to 9 used by ST when CT is Bull | 10 to 19 used by ST when CT is Bear
     // 3 to 6 is used by TT when ST is Bull | 13 to 16 is used by TT when ST is Bear | 19 and 20 are used by TT when ST is Cons(olidating)
@@ -36,7 +37,8 @@ public class StockSim : MonoBehaviour
     // Trend guy Dialouge B)
     private readonly string[] TGD = { "The Trend seems to be bearish. Not great for the average person", "The market is likely going nowhere for now", "The Trend is bullish! A great time for investors!" };
 
-    public bool selected;
+    // Tells the script if it is the one being displayed
+    public bool selected = true;
 
     // UI REFRENCES
     // All the trading stuff: Current price, Delta Price, Shares, Share net worth
@@ -49,12 +51,15 @@ public class StockSim : MonoBehaviour
     // UIUpdate: Updates all the UI info
     private void UIUpdate() 
     {
-        // Updates the Prices
-        Ti.text = ("Current Price: " + CurrentPrice + "$\nChange in Price: " + DeltaPrice + "$\nShares: " + Shares + "\nShare Net worth: " + (Shares*CurrentPrice) + "$");
-        // Updates Trend guy
-        if ((TrendTimer - (10 * math.floor(TrendTimer / 10))) >= 3 && UnityEngine.Random.Range(0,2) == 1)
+        if (selected == true)
         {
-            TG.text = (TGD[(int)Trends[1] + 1]);
+            // Updates the Prices
+            Ti.text = ("Current Price: " + CurrentPrice + "$\nChange in Price: " + DeltaPrice + "$\nShares: " + Shares + "\nShare Net worth: " + (Shares * CurrentPrice) + "$");
+            // Updates Trend guy
+            if ((TrendTimer - (100 * math.floor((TrendTimer) / 100))) >= 3 && UnityEngine.Random.Range(0, 2) == 1)
+            {
+                TG.text = (TGD[(int)Trends[1] + 1]);
+            }
         }
     }
 
@@ -83,7 +88,7 @@ public class StockSim : MonoBehaviour
         }
 
         // Stock Trend: Checks if the Trend timer is over and then updates the trend randomly (Influnced by CT)
-        if (math.floor(TrendTimer/10) == (TrendTimer - (10*math.floor(TrendTimer / 10))))
+        if (math.floor((TrendTimer - 10000) / 100) == (TrendTimer -(100*math.floor((TrendTimer) / 100))))
         {
             if (Trends[0] == 1)
             {
@@ -93,7 +98,7 @@ public class StockSim : MonoBehaviour
             {
                 Trends[1] = Probablity[UnityEngine.Random.Range(10, 20)];
             }
-            TrendTimer = (10 * UnityEngine.Random.Range(6, 13));
+            TrendTimer = 10000 + (100 * UnityEngine.Random.Range(6, 13));
         }
 
         // Tick Trend: Is random, and decides if the stock price will go up or down (Influenced by ST)
