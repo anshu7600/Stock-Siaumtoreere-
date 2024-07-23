@@ -6,8 +6,8 @@ public class StockTest : MonoBehaviour
 {
     public float DeltaP;
     public float CP = 20;
-    private float CurrentTrend;
-    private float trend;
+    float CurrentTrend;
+    float trend;
     public string Trend;
     public float TrendTimer = 0;
     public float TrendTime;

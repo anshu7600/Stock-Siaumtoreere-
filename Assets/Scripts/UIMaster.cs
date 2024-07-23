@@ -18,6 +18,7 @@ public class UImaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(cp);
+        // cp = FindObjectOfType<StockSim>().CurrentPrice;
+        // Debug.Log(cp);
     }
 }

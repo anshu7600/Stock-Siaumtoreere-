@@ -20,10 +20,10 @@ public class StockSim : MonoBehaviour
     // Probability is used to decide Tick Trend and Stock Trend as they are influenced by another trend
     // 0 to 9 used by ST when CT is Bull | 10 to 19 used by ST when CT is Bear
     // 3 to 6 is used by TT when ST is Bull | 13 to 16 is used by TT when ST is Bear | 19 and 20 are used by TT when ST is Cons(olidating)
-    private readonly int[] Probablity = {0, -1, -1, -1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, -1, -1, -1, -1, 0, -1, 1};
+    readonly int[] Probablity = {0, -1, -1, -1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, -1, -1, -1, -1, 0, -1, 1};
     // TPM stands for ticks per minute, Each tick the stock updates
     public int TPM = 10;
-    private float TickTimer = 0;
+    float TickTimer = 0;
     // Stock Factors include: Peak(Max value of stock), Risk(Multiplies losses), (Ignore the 0), Reward(Multiplies Gains)
     public float[] StockFactors = {747f, 0.97f, 0f, 1.12f};
     // TRADING FACTORS
@@ -35,7 +35,7 @@ public class StockSim : MonoBehaviour
     // The decimal will not be included in the code but the backslashes will be.
     public string[] Orders;
     // Trend guy Dialouge B)
-    private readonly string[] TGD = { "The Trend seems to be bearish. Not great for the average person", "The market is likely going nowhere for now", "The Trend is bullish! A great time for investors!" };
+    readonly string[] TGD = {"The Trend seems to be bearish. Not great for the average person", "The market is likely going nowhere for now", "The Trend is bullish! A great time for investors!" };
 
     // Tells the script if it is the one being displayed
     public bool selected = true;
@@ -49,7 +49,7 @@ public class StockSim : MonoBehaviour
     // Functions
 
     // UIUpdate: Updates all the UI info
-    private void UIUpdate() 
+    void UIUpdate() 
     {
         if (selected == true)
         {
@@ -66,7 +66,7 @@ public class StockSim : MonoBehaviour
     // TradeManager: Does all the trading related stuff(Further explanations are shown below)
 
     // Logger: Outputs all the values in the console
-    private void Logger() 
+    void Logger() 
     {
         // Debug Purposes only, Change values as you like
         Debug.Log("Current Price: " + CurrentPrice + "$ Delta Price: " + DeltaPrice + "$ CTrend: " + Trends[0] + " STrend: " + Trends[1] + " Timer: " + TrendTimer + " TTrend: " + Trends[2]);
@@ -74,7 +74,7 @@ public class StockSim : MonoBehaviour
     }
 
     // TrendManager: Does all the trend related stuff(Further explanations are shown below)
-    private void TrendManager()
+    void TrendManager()
     {
         // This function is split into 3 sections
         // Company Trend: Checks if Peak or Valley is hit and sets accordingly (It goes dow after a peak and up after a valley)
@@ -121,7 +121,7 @@ public class StockSim : MonoBehaviour
     }
 
     // TickCounter: Makes all the tick the same distance apart(Time wise)
-    private void TickCounter()
+    void TickCounter()
     {
         TickTimer += Time.deltaTime;
         if (TickTimer > 60/TPM - Time.deltaTime) 
@@ -132,7 +132,7 @@ public class StockSim : MonoBehaviour
     }
 
     // TickUpdate: Everything that happens in a tick is here
-    private void TickUpdate()
+    void TickUpdate()
     {
         // Sets DeltaPrice to a value influenced by the TT and ST
         if (Trends[1] == Trends[2]) 
