@@ -31,9 +31,9 @@ public class GridRenderer : Graphic
 
         int count = 0;
 
-        for(int y = 0; y++ < gridSize.y; y++)
+        for(int y = 0; y < gridSize.y; y++)
         {
-            for(int x=0; x<gridSize.x; x++)
+            for(int x = 0; x < gridSize.x; x++)
             {
                 DrawCell(x, y, count, vh);
                 count++;
@@ -68,7 +68,7 @@ public class GridRenderer : Graphic
         vh.AddVert(vertex);
 
         // Adds a vertex at the specifed Vector3
-        vertex.position = new Vector3(xPos + cellWidth, xPos);
+        vertex.position = new Vector3(xPos + cellWidth, yPos);
         vh.AddVert(vertex);
 
         // vh.AddTriangle(0, 1, 2);
@@ -95,7 +95,7 @@ public class GridRenderer : Graphic
         vh.AddVert(vertex);
 
         // Adds a vertex at the specifed Vector3
-        vertex.position = new Vector3(xPos + (width - distance), yPos + distance);
+        vertex.position = new Vector3(xPos + (cellWidth - distance), yPos + distance);
         vh.AddVert(vertex);
 
         int offset = index * 8;

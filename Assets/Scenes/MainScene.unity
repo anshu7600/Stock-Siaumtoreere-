@@ -583,8 +583,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -489.78, y: -234}
-  m_SizeDelta: {x: 1038.9, y: 688.51}
+  m_AnchoredPosition: {x: -501.9596, y: -232.99849}
+  m_SizeDelta: {x: 1063.2197, y: 654.9294}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &281231806
 MonoBehaviour:
@@ -599,11 +599,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.096724816, g: 0.13082397, b: 0.20754719, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  gridSize: {x: 1, y: 1}
-  thickness: 10
+  gridSize: {x: 12, y: 9}
+  thickness: 5
 --- !u!222 &281231807
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2197,7 +2197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c0a1dc348ba7a4a9a9f7f6cbb6729c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wallet: 100
   PL: 0
   Net: 100
   Shares: 0
