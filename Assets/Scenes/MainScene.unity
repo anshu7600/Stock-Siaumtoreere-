@@ -1648,6 +1648,8 @@ GameObject:
   - component: {fileID: 1067313344}
   - component: {fileID: 1067313343}
   - component: {fileID: 1067313347}
+  - component: {fileID: 1067313348}
+  - component: {fileID: 1067313349}
   m_Layer: 0
   m_Name: Stock
   m_TagString: Untagged
@@ -1707,14 +1709,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1067313344
-Transform:
+--- !u!224 &1067313344
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067313341}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1722,6 +1723,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1067313347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1752,6 +1758,37 @@ MonoBehaviour:
   selected: 1
   Ti: {fileID: 496596105}
   TG: {fileID: 100356075}
+--- !u!114 &1067313348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067313341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079f4cefbd483a64a9147f831250c723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  gridSize: {x: 12, y: 9}
+  grid: {fileID: 281231806}
+  points:
+  - {x: 0, y: 0}
+  - {x: 1.68, y: 1.9}
+  - {x: 2.34, y: 6.52}
+  thickness: 10
+--- !u!222 &1067313349
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067313341}
+  m_CullTransparentMesh: 1
 --- !u!1 &1352088382
 GameObject:
   m_ObjectHideFlags: 0
@@ -2663,7 +2700,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
-  - {fileID: 1067313344}
   - {fileID: 2013032612}
   - {fileID: 243569972}
   - {fileID: 1948238553}
+  - {fileID: 1067313344}
