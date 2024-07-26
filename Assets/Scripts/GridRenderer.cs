@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,8 +13,8 @@ public class GridRenderer : Graphic
     // Thickness of graph line
     public float thickness = 10f;
 
-    float width;
-    float height;
+    public float width;
+    public float height;
     float cellWidth;
     float cellHeight;
 
@@ -25,6 +26,7 @@ public class GridRenderer : Graphic
         // Gets height and width of parent class
         float width = rectTransform.rect.width;
         float height = rectTransform.rect.height;
+
 
         cellWidth = width / (float)gridSize.x;
         cellHeight = height / (float)gridSize.y;

@@ -21,8 +21,10 @@ public class GraphRenderer : Graphic
     {
         vh.Clear();
 
-        width = FindObjectOfType<GridRenderer>().rectTransform.rect.width;
-        height = FindObjectOfType<GridRenderer>().rectTransform.rect.height;
+        float width = FindObjectOfType<GridRenderer>().width;
+        float height = FindObjectOfType<GridRenderer>().height;
+
+        Debug.Log(width + " " + height);
 
         unitWidth = width / (float)gridSize.x;
         unitHeight = height / (float)gridSize.y;
