@@ -36,7 +36,8 @@ public class StockSim : MonoBehaviour
     public string[] Orders;
     // Trend guy Dialouge B)
     readonly string[] TGD = {"The Trend seems to be bearish. Not great for the average person", "The market is likely going nowhere for now", "The Trend is bullish! A great time for investors!" };
-
+    // This records CP in the last 10 ticks. In order from oldest to latest
+    public List<float> History = new List<float>();
     // Tells the script if it is the one being displayed
     public bool selected = true;
 
@@ -158,6 +159,9 @@ public class StockSim : MonoBehaviour
             CurrentPrice = 0;
         }
 
+        History.RemoveAt(0);
+        History.Add((float)CurrentPrice);
+
         // Debug Purposes only
         // Logger();
         // Calls Trend Manager
@@ -171,6 +175,12 @@ public class StockSim : MonoBehaviour
         // We know unity, we know...
         void Start()
     {
+        History.Clear();
+        for(int i = 0; i < 10; i++) 
+        {
+            History.Add(0f);
+        }
+        Debug.Log(History.Count);
         TickUpdate();
     }
 
